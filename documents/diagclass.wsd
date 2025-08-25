@@ -1,0 +1,9 @@
+@startuml diagramaclass
+
+class User {
+    <<abstract>>
+    
+}
+
+
+@enduml
