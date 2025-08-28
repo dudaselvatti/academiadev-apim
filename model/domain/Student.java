@@ -1,11 +1,11 @@
-package bases;
+package model.domain;
 
 import java.util.List;
 
 public class Student extends User{
 
     private SubscriptionPlan subscriptionplan;
-    private List<Enrollments> enrollments;
+    private List<Enrollment> enrollments;
 
     public Student(String name, String email, SubscriptionPlan subscriptionplan) {
         super(name, email);
@@ -15,6 +15,8 @@ public class Student extends User{
     public SubscriptionPlan getSubscriptionplan() {
         return subscriptionplan;
     }
+
+    
 
 
     
