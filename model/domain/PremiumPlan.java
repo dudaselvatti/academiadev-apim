@@ -1,5 +1,7 @@
 package model.domain;
 
+import java.util.List;
+
 public class PremiumPlan implements SubscriptionPlan {
     
     @Override
@@ -8,7 +10,7 @@ public class PremiumPlan implements SubscriptionPlan {
     }
 
     @Override
-    public boolean canEnroll(Student student, long totalEnrollments) {
+    public boolean canEnroll(Student student, List<Enrollment> activeEnrollments) {
         return true;
     }
     

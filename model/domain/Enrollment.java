@@ -4,7 +4,7 @@ public class Enrollment {
     
     private Student student;
     private Course course;
-    private int progress;
+    private long progress;
 
 
     public Enrollment(Student student, Course course) {
@@ -14,11 +14,11 @@ public class Enrollment {
     }
 
 
-    public int getProgress() {
+    public long getProgress() {
         return progress;
     }
 
-    public void updateProgress(int progress) {
+    public void updateProgress(long progress) {
         if (progress >= 0 && progress <= 100) {
             this.progress = progress;
         }

@@ -15,9 +15,12 @@ public class Student extends User{
     public SubscriptionPlan getSubscriptionplan() {
         return subscriptionplan;
     }
-
     
+    public void setSubscriptionPlan(SubscriptionPlan subscriptionplan) {
+        this.subscriptionplan = subscriptionplan;
+    }
 
-
-    
+    public SubscriptionPlan getSubscriptionPlan() {
+        return this.subscriptionplan;
+    }
 }
