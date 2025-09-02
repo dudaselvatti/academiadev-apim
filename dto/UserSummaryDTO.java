@@ -1,10 +1,20 @@
 package dto;
 
 public class UserSummaryDTO {
-    
+   
     private String name;
     private String email;
     private String role;
+
+    public UserSummaryDTO() {}
+
+    public UserSummaryDTO(String name, String email, String role) {
+        this.name = name;
+        this.email = email;
+        this.role = role;
+    }
+
+
 
     public String getName() {
         return name;
@@ -30,6 +40,12 @@ public class UserSummaryDTO {
         this.role = role;
     }
 
-
-
+    @Override
+    public String toString() {
+        return "" +
+                "| name:'" + name + '\'' +
+                ", email:'" + email + '\'' +
+                " | ";
+    }
+  
 }

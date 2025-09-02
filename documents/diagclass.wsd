@@ -1,9 +1,64 @@
-@startuml diagramaclass
+@startuml diagrama de classes - Academia Dev
+skinparam classAttributeIconSize 0
+hide empty members
 
-class User {
-    <<abstract>>
-    
+' --- Enumerações ---
+enum DifficultyLevel {
+  BEGINNER
+  INTERMEDIATE
+  ADVANCED
 }
 
+enum CourseStatus {
+  ACTIVE
+  INACTIVE
+}
+
+' --- Hierarquia de Usuários ---
+abstract class User {
+  # name: String
+  # email: String
+}
+class Admin extends User {}
+class Student extends User {
+  - subscriptionPlan: SubscriptionPlan
+}
+
+' --- Planos de Assinatura (Strategy Pattern) ---
+interface SubscriptionPlan <<Interface>> {
+  + canEnroll(student: Student, enrollments: List<Enrollment>): boolean
+}
+class BasicPlan implements SubscriptionPlan {}
+class PremiumPlan implements SubscriptionPlan {}
+
+
+' --- Entidades Principais ---
+class Course {
+  - title: String
+  - description: String
+  - instructorName: String
+  - status: CourseStatus
+  - difficultyLevel: DifficultyLevel
+}
+
+class Enrollment {
+  - student: Student
+  - course: Course
+  - progress: int
+  + updateProgress(progress: int): void
+}
+
+class SupportTicket {
+ - user: User
+ - title: String
+ - description: String
+}
+
+
+' --- Relacionamentos ---
+Student "1" o--> "1" SubscriptionPlan : tem um >
+Enrollment --> "1" Student : pertence a >
+Enrollment --> "1" Course : é de um >
+SupportTicket --> "1" User : criado por >
 
 @enduml
